@@ -7,22 +7,10 @@
       "name": "Администратор"
     },
     {
-      "email": "taras@mail.ru",
-      "password": "123456",
-      "name": "Artur",
-      "id": 2
-    },
-    {
       "email": "artur-tarasov@mail.ru",
       "password": "123456",
-      "name": "Artur",
-      "id": 3
-    },
-    {
-      "email": "ar@mail.ru",
-      "password": "123456",
-      "name": "artur",
-      "id": 4
+      "name": "Артур Тарасов",
+      "id": 2
     }
   ],
   "bill": {
