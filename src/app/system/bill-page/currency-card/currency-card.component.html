@@ -17,17 +17,17 @@
           <tr>
             <td>RUB</td>
             <td>1</td>
-            <td>{{ currency.date }}</td>
+            <td>{{ currency.date | wfmMoment:'yyyy-MM-DD' }}</td>
           </tr>
           <tr>
             <td>{{ currency.base }}</td>
             <td>{{ 1 / currency.rates['RUB'] | number:'1.2' }}</td>
-            <td>{{ currency.date }}</td>
+            <td>{{ currency.date | wfmMoment:'yyyy-MM-DD' }}</td>
           </tr>
           <tr>
             <td>USD</td>
             <td>{{ currency.rates['USD'] / currency.rates['RUB'] | number:'1.2' }}</td>
-            <td>{{ currency.date }}</td>
+            <td>{{ currency.date | wfmMoment:'yyyy-MM-DD' }}</td>
           </tr>
           </tbody>
         </table>

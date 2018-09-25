@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component , OnDestroy , OnInit} from '@angular/core';
 import {Bill} from '../shared/models/bill.model';
 import {BillService} from '../shared/services/bill.service';
 import {Observable , Subscription} from 'rxjs/Rx';
@@ -8,7 +8,7 @@ import {Observable , Subscription} from 'rxjs/Rx';
   templateUrl: './bill-page.component.html',
   styleUrls: ['./bill-page.component.scss']
 })
-export class BillPageComponent implements OnInit {
+export class BillPageComponent implements OnInit, OnDestroy {
 
   sub1: Subscription;
   sub2: Subscription;
@@ -25,7 +25,6 @@ export class BillPageComponent implements OnInit {
       this.billService.getCurrency()
     ).delay(2000)
       .subscribe((data: [Bill, any]) => {
-        console.log(data);
         this.bill = data[0];
         this.currency = data[1];
         this.isLoaded = true;
@@ -40,5 +39,12 @@ export class BillPageComponent implements OnInit {
         this.currency = currency;
         this.isLoaded = true;
       });
+  }
+
+  ngOnDestroy() {
+    this.sub1.unsubscribe();
+    if (this.sub2) {
+      this.sub2.unsubscribe();
+    }
   }
 }
