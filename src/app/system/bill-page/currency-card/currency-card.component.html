@@ -19,9 +19,14 @@
             <td>1</td>
             <td>{{ currency.date }}</td>
           </tr>
-          <tr *ngFor="let c of currencies">
-            <td>c</td>
-            <td>{{ currency.rates[c] }}</td>
+          <tr>
+            <td>{{ currency.base }}</td>
+            <td>{{ 1 / currency.rates['RUB'] | number:'1.2' }}</td>
+            <td>{{ currency.date }}</td>
+          </tr>
+          <tr>
+            <td>USD</td>
+            <td>{{ currency.rates['USD'] / currency.rates['RUB'] | number:'1.2' }}</td>
             <td>{{ currency.date }}</td>
           </tr>
           </tbody>
