@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 110500,
     "currency": "RUB"
   },
   "categories": [
@@ -32,6 +32,11 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "name": "Учеба",
+      "capacity": 120000,
+      "id": 4
     }
   ],
   "events": [
@@ -74,6 +79,38 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "income",
+      "amount": 20000,
+      "category": 4,
+      "date": "29.09.02018 11:29:01",
+      "description": "Выдача гранта",
+      "id": 8
+    },
+    {
+      "type": "outcome",
+      "amount": 10000,
+      "category": 4,
+      "date": "29.09.02018 11:41:01",
+      "description": "Зарплата",
+      "id": 9
+    },
+    {
+      "type": "income",
+      "amount": 33000,
+      "category": 1,
+      "date": "29.09.02018 11:41:28",
+      "description": "Стипендия",
+      "id": 10
+    },
+    {
+      "type": "outcome",
+      "amount": 500,
+      "category": 3,
+      "date": "29.09.02018 11:42:34",
+      "description": "Бензин",
+      "id": 11
     }
   ]
 }
