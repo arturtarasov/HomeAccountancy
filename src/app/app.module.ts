@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import {AuthModule} from './auth/auth.module';
 import {UsersService} from './shared/services/users.service';
 import {AuthService} from './shared/services/auth.service';
-import {SystemModule} from "./system/system.module";
+import {SystemModule} from './system/system.module';
 
 
 @NgModule({
