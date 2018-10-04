@@ -50,7 +50,7 @@
     },
     {
       "id": 2,
-      "type": "outcome",
+        "type": "outcome",
       "amount": 1300,
       "category": 1,
       "date": "13.06.2017 19:49:02",
@@ -84,7 +84,7 @@
       "type": "income",
       "amount": 20000,
       "category": 4,
-      "date": "29.09.02018 11:29:01",
+      "date": "29.09.2018 11:29:01",
       "description": "Выдача гранта",
       "id": 8
     },
@@ -92,7 +92,7 @@
       "type": "outcome",
       "amount": 10000,
       "category": 4,
-      "date": "29.09.02018 11:41:01",
+      "date": "29.09.2018 11:41:01",
       "description": "Зарплата",
       "id": 9
     },
@@ -100,7 +100,7 @@
       "type": "income",
       "amount": 33000,
       "category": 1,
-      "date": "29.09.02018 11:41:28",
+      "date": "29.09.2018 11:41:28",
       "description": "Стипендия",
       "id": 10
     },
@@ -108,7 +108,7 @@
       "type": "outcome",
       "amount": 500,
       "category": 3,
-      "date": "29.09.02018 11:42:34",
+      "date": "29.09.2018 11:42:34",
       "description": "Бензин",
       "id": 11
     }
