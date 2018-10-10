@@ -9,6 +9,21 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
+          <label class="control-label">Выберите максимальную сумму</label>
+          <div>
+            <input
+              class="form-control"
+              type="text"
+              name="sum"
+              #sum="ngModel"
+              [(ngModel)]="selectedSum"
+              (change)="handleChangeSum($event.target)"
+              placeholder="Поле должно быть заполненным"
+              required
+            >
+          </div>
+        </div>
+        <div class="form-group">
           <label class="control-label" for="period">Выберите период</label>
           <select class="form-control" id="period" [(ngModel)]="selectedPeriod">
             <option *ngFor="let p of timePeriods" [value]="p.type">{{p.label}}</option>
@@ -44,7 +59,13 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="closeFilter()">Отмена</button>
-          <button type="button" class="btn btn-primary" (click)="applyFilter()" >Применить</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="applyFilter()"
+            [disabled]="sum.invalid"
+          >
+            Применить</button>
         </div>
       </div>
     </div>

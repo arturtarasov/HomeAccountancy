@@ -16,6 +16,7 @@ export class HistoryFilterComponent {
   selectedPeriod = 'd';
   selectedTypes = [];
   selectedCategories = [];
+  selectedSum = 0;
 
   timePeriods = [
     {type: 'd', label: 'День'},
@@ -50,12 +51,16 @@ export class HistoryFilterComponent {
   handleChangeCategory({checked, value}) {
     this.calculateInputParams('selectedCategories', checked, value);
   }
+  handleChangeSum({value}) {
+    this.selectedSum = value;
+  }
 
   applyFilter() {
     this.onFilterApply.emit({
       types: this.selectedTypes,
       categories: this.selectedCategories,
-      period: this.selectedPeriod
+      period: this.selectedPeriod,
+      sum: this.selectedSum
     });
   }
 

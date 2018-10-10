@@ -72,6 +72,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   }
 
   onFilterApply(filterData) {
+    console.log(+filterData.sum);
     this.toggleFilterVisibility(false);
     this.setOriginalEvents();
 
@@ -84,6 +85,9 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       })
       .filter((e) => {
         return filterData.categories.indexOf(e.category.toString()) !== -1;
+      })
+      .filter((e) => {
+        return +filterData.sum > e.amount;
       })
       .filter((e) => {
         const momentDate = moment(e.date, 'DD.MM.YYYY HH:mm:ss');
