@@ -100,7 +100,7 @@
       "type": "income",
       "amount": 33000,
       "category": 1,
-      "date": "29.09.2018 11:41:28",
+      "date": "09.10.2018 11:41:28",
       "description": "Стипендия",
       "id": 10
     },
@@ -108,7 +108,7 @@
       "type": "outcome",
       "amount": 500,
       "category": 3,
-      "date": "29.09.2018 11:42:34",
+      "date": "10.10.2018 11:42:34",
       "description": "Бензин",
       "id": 11
     }

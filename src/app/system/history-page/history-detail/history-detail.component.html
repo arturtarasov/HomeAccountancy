@@ -1,4 +1,4 @@
-<div class="text center" *ngIf="!isLoaded">Loading...</div>
+<div class="text-center" *ngIf="!isLoaded">Loading ....</div>
 <div *ngIf="isLoaded">
   <div class="title-block">
     <h3 class="title">
@@ -10,12 +10,10 @@
   <section class="section">
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
-        <div class="card"
-          [ngClass]="{
-            'card-success': event.type === 'income',
-            'card-danger': event.type === 'outcome'
-          }"
-        >
+        <div class="card" [ngClass]="{
+          'card-success': event.type === 'income',
+          'card-danger': event.type === 'outcome'
+        }">
           <div class="card-header">
             <div class="header-block">
               <p class="title">
@@ -26,12 +24,12 @@
           </div>
           <div class="card-block">
             <ul>
-              <li>Сумма: <strong>{{ event.amount| number:'1.2' }} P</strong></li>
-              <li>Категория: <strong>{{ category.name }}</strong></li>
-              <li>Комментарий: <strong>{{ event.description }}</strong></li>
+              <li>Сумма: <strong>{{event.amount | number:'1.2'}} P</strong></li>
+              <li>Категория: <strong>{{category.name}}</strong></li>
+              <li>Комментарий: <strong>{{event.description}}</strong></li>
             </ul>
           </div>
-          <div class="card-footer">{{ event.date }}</div>
+          <div class="card-footer">{{event.date}}</div>
         </div>
       </div>
     </div>

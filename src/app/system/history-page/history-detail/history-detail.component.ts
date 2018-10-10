@@ -1,10 +1,10 @@
-import {Component , OnDestroy , OnInit} from '@angular/core';
-import {ActivatedRoute , Params} from "@angular/router";
-import {EventsService} from "../../shared/services/events.service";
-import {CategoriesService} from "../../shared/services/categories.service";
-import {Observable , Subscription} from "rxjs/Rx";
-import {WFMEvent} from "../../shared/models/event.model";
-import {Category} from "../../shared/models/category.model";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { EventsService } from '../../shared/services/events.service';
+import { CategoriesService } from '../../shared/services/categories.service';
+import { WFMEvent } from '../../shared/models/event.model';
+import { Category } from '../../shared/models/category.model';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'wfm-history-detail',
@@ -13,27 +13,33 @@ import {Category} from "../../shared/models/category.model";
 })
 export class HistoryDetailComponent implements OnInit, OnDestroy {
 
-  category: Category;
   event: WFMEvent;
-  isLoaded = false;
+  category: Category;
 
-  sub1: Subscription;
-  constructor(private route: ActivatedRoute, private eventService: EventsService, private categoriesService: CategoriesService) { }
+  isLoaded = false;
+  s1: Subscription;
+
+  constructor(private route: ActivatedRoute,
+              private eventsService: EventsService,
+              private categoriesService: CategoriesService) {
+  }
 
   ngOnInit() {
-    this.sub1 = this.route.params
-      .mergeMap((params: Params) => this.eventService.getEventById(params[ 'id' ]))
+    this.s1 = this.route.params
+      .mergeMap((params: Params) => this.eventsService.getEventById(params['id']))
       .mergeMap((event: WFMEvent) => {
         this.event = event;
         return this.categoriesService.getCategoryById(event.category);
-      }).subscribe((category: category) => {
+      })
+      .subscribe((category: Category) => {
         this.category = category;
         this.isLoaded = true;
-    });
+      });
   }
+
   ngOnDestroy() {
-    if (this.sub1) {
-      this.sub1.unsubscribe();
+    if (this.s1) {
+      this.s1.unsubscribe();
     }
   }
 

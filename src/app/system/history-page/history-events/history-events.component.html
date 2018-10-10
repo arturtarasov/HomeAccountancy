@@ -16,7 +16,7 @@
               >
             </div>
             <div class="btn-group" wfmDropdown>
-              <button type="button" class="btn btn-secondary dropdown-toggle">
+              <button type="button" class="btn btn-secondary dropdown-toggle ">
                 Параметр
               </button>
               <div class="dropdown-menu">
@@ -41,13 +41,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let e of events | wfmFilter: searchValue:searchField; let idx = index">
+            <tr *ngFor="let e of events | wfmFilter:searchValue:searchField; let idx = index">
               <th scope="row">{{ idx + 1 }}</th>
               <td>{{ e.amount | number:'1.2' }}</td>
-              <td>{{ e.date | wfmMoment: 'DD.MM.YYYY hh.mm.ss'}}</td>
+              <td>{{ e.date | wfmMoment:'DD.MM.YYYY HH:mm:ss' }}</td>
               <td>{{ e.catName }}</td>
               <td>
-                <span [ngClass]="getEventsClass(e)">
+                <span [ngClass]="getEventClass(e)">
                   <span *ngIf="e.type === 'income'">Доход</span>
                   <span *ngIf="e.type === 'outcome'">Расход</span>
                 </span>
