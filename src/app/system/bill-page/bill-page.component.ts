@@ -23,7 +23,7 @@ export class BillPageComponent implements OnInit, OnDestroy {
     this.sub1 = Observable.combineLatest(
       this.billService.getBill(),
       this.billService.getCurrency()
-    ).delay(2000)
+    ).delay(1000)
       .subscribe((data: [Bill, any]) => {
         this.bill = data[0];
         this.currency = data[1];
@@ -34,7 +34,7 @@ export class BillPageComponent implements OnInit, OnDestroy {
   onRefresh() {
     this.isLoaded = false;
     this.sub2 = this.billService.getCurrency()
-      .delay(2000)
+      .delay(1000)
       .subscribe((currency: any) => {
         this.currency = currency;
         this.isLoaded = true;
