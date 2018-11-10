@@ -41,7 +41,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm) {
-    const {amount, description, category, type} = form.value;
+    let {amount, description, category, type} = form.value;
     if (amount < 0) {
       amount *= -1;
     }
@@ -51,7 +51,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
 
     this.sub1 = this.billService.getBill()
       .subscribe((bill: Bill) => {
-        const value = 0;
+        let value = 0;
         if (type === 'outcome') {
           if (amount > bill.value) {
             this.showMessage(`На счету недостаточно средств. Вам не хватает ${amount - bill.value}`);

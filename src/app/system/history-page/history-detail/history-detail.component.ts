@@ -29,9 +29,9 @@ export class HistoryDetailComponent implements OnInit, OnDestroy {
       .mergeMap((params: Params) => this.eventsService.getEventById(params['id']))
       .mergeMap((event: WFMEvent) => {
         this.event = event;
-        return this.categoriesService.getCategoryById(event.category);
+        return this.categoriesService.getCategoryById(event.category.toString());
       })
-      .subscribe((category: Category) => {
+      .subscribe((category: any) => {
         this.category = category;
         this.isLoaded = true;
       });

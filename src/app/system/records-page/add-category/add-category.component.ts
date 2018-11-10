@@ -17,7 +17,7 @@ export class AddCategoryComponent implements OnDestroy {
   constructor(private categories: CategoriesService) { }
 
   onSubmit(form: NgForm) {
-    const { name, capacity } = form.value;
+    let { name, capacity } = form.value;
     if (capacity < 0) {
       capacity *= -1;
     }

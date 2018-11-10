@@ -33,7 +33,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
     this.s1 = Observable.combineLatest(
       this.categoriesService.getCategories(),
       this.eventService.getEvents()
-    ).subscribe((data: [Category[], WFMEvent[]]) => {
+    ).subscribe((data: [any, any]) => {
       this.categories = data[0];
       this.events = data[1];
 

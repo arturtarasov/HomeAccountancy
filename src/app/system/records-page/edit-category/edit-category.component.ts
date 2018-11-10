@@ -33,7 +33,7 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm) {
-    const {capacity, name} = form.value;
+    let {capacity, name} = form.value;
     if (capacity < 1) {
       capacity *= -1;
     }
