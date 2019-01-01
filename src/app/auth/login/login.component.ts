@@ -6,6 +6,7 @@ import {UsersService} from "../../shared/services/users.service";
 import {User} from "../../shared/models/user.model";
 import {Message} from "../../shared/models/message.model";
 import {AuthService} from '../../shared/services/auth.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -22,8 +23,16 @@ export class LoginComponent implements OnInit {
     private userService: UsersService,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private title: Title,
+    private meta: Meta
+  ) { 
+    title.setTitle('Вход в систему');
+    meta.addTags([
+      {name: 'keywords', content: 'вход, логин, пароль, система'},
+      {name: 'description', content: 'Вход в систему'}
+    ]);
+  }
 
   ngOnInit() {
     this.message = new Message('danger', '');
