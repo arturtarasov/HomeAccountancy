@@ -1,3 +1,8 @@
+# Start the project
+
+1. Run `npm run start` to start the project.
+2. Run `npm run server` to start the server.
+
 # HomeAccountancy
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
