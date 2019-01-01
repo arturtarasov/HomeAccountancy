@@ -7,7 +7,8 @@ import {User} from "../../shared/models/user.model";
 import {Message} from "../../shared/models/message.model";
 import {AuthService} from '../../shared/services/auth.service';
 import { Title, Meta } from '@angular/platform-browser';
-
+import { HttpClient } from "@angular/common/http";
+import { Api } from 'src/app/shared/core/api';
 
 @Component({
   selector: 'wfm-login',
@@ -18,23 +19,27 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   message: Message;
-
+  http: HttpClient;
+  private api;
   constructor(
     private userService: UsersService,
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
-    private meta: Meta
+    private meta: Meta,
+    private httpClient: HttpClient
   ) { 
     title.setTitle('Вход в систему');
     meta.addTags([
       {name: 'keywords', content: 'вход, логин, пароль, система'},
       {name: 'description', content: 'Вход в систему'}
     ]);
+    this.http = httpClient;
   }
 
   ngOnInit() {
+    this.api = new Api(this.http);
     this.message = new Message('danger', '');
 
     this.route.queryParams
@@ -64,20 +69,28 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const formData = this.form.value;
-    this.userService.getUserByEmail(formData.email)
-      .subscribe((user: User) => {
-        if (user) {
-          if (user.password === formData.password) {
-            this.message.text = '';
-            window.localStorage.setItem('user', JSON.stringify(user));
-            this.authService.login();
-            this.router.navigate(['/system', 'bill']);
-          } else {
-            this.showMessage('пароль не верный');
-          }
-        } else {
-          this.showMessage('Такого пользователя не существует');
-        }
-      });
+    const data = {
+      email: formData.email,
+      password: formData.password
+    };
+    this.api.post('login', data)
+      .subscribe((data) => {
+        console.log(data);
+      })
+    // this.userService.getUserByEmail(formData.email)
+    //   .subscribe((user: User) => {
+    //     if (user) {
+    //       if (user.password === formData.password) {
+    //         this.message.text = '';
+    //         window.localStorage.setItem('user', JSON.stringify(user));
+    //         this.authService.login();
+    //         this.router.navigate(['/system', 'bill']);
+    //       } else {
+    //         this.showMessage('пароль не верный');
+    //       }
+    //     } else {
+    //       this.showMessage('Такого пользователя не существует');
+    //     }
+    //   });
   }
 }
