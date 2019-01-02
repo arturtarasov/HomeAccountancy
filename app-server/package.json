@@ -1,22 +1,24 @@
 {
   "name": "app-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "server for Home Accountacy",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server"
+    "start": "node server.js"
   },
-  "author": "",
+  "keywords": [
+    "server",
+    "app",
+    "node",
+    "mssql"
+  ],
+  "author": "Artur Tarasov",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "express-jwt": "^5.3.1",
-    "jsonwebtoken": "^8.4.0",
-    "passport": "^0.4.0",
-    "bcryptjs": "*",
-    "cors": "*",
-    "body-parser": "*",
-    "passport-jwt": "*"
+    "mssql": "^4.3.0"
   }
 }
