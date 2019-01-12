@@ -38,11 +38,24 @@ app.use('/login', function(req, res) {
   sql.connect(config, function (err) {
     if (err) console.log(err);
     var request = new sql.Request();
+    request.query("SELECT * FROM [User]", function (err, data) {
+      if (err) console.log(err)
+      res.json(data.recordset);
+      sql.close();
+    });
+  });
+});
+
+app.use('/registration', function(req, res) {
+  sql.connect(config, function (err) {
+    if (err) console.log(err);
+    var request = new sql.Request();
     request.input('email', req.body.email);
     request.input('password', req.body.password);
-    request.query("INSERT INTO test2_table (email, password) values (@email, @password)", function (err, data) {
+    request.input('name', req.body.name);
+    request.query("INSERT INTO [User] (email, password, name) values (@email, @password, @name)", function (err, data) {
       if (err) console.log(err)
-      res.send('success');
+      res.json({data: {email: req.body.email, password: req.body.password, name: req.body.name}});
       sql.close();
     });
   });
