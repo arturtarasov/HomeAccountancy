@@ -40,8 +40,14 @@ app.use('/login', function(req, res) {
     var request = new sql.Request();
     request.query("SELECT * FROM [User]", function (err, data) {
       if (err) console.log(err)
-      res.json(data.recordset);
+      for(let i = 0; i < data.recordset.length; i++) {
+        if (data.recordset[i].email === req.body.email && data.recordset[i].password === req.body.password) {
+          sql.close();
+          return res.status(200).json({success: '+'});
+        }
+      }
       sql.close();
+      return res.status(200).json({success: '-'});
     });
   });
 });
